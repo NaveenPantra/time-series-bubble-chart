@@ -1,0 +1,252 @@
+:root {
+  --email: #BAD7FB;
+  --call: #E4E1FF;
+  --message: #FFE8DC;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  color: #222;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+
+section {
+  width: 95vmin;
+  /*height: 35vmin;*/
+  overflow-x: scroll;
+  overflow-y: hidden;
+  border: 1px solid #e7ecf2;
+  background: #e7ecf2;
+
+  display: grid;
+  gap: 1px;
+  grid-template-columns: minmax(219px, min-content) 1fr minmax(150px, min-content) minmax(120px, min-content);
+  grid-template-rows: minmax(min-content, 35px) repeat(2, minmax(min-content, 84px)) minmax(min-content, 64px);
+}
+
+.title {
+  grid-column: 1 / span 1;
+  background: white;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.legend {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+  background: white;
+
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 16px;
+}
+
+.legend-title {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.legend-bubble {
+  --w: 15px;
+  width: var(--w);
+  height: var(--w);
+  border-radius: 50%;
+
+}
+
+.legend-bubble-email {
+  background-color: var(--email);
+}
+
+.legend-bubble-message {
+  background-color: var(--message);
+}
+
+.legend-bubble-call {
+  background-color: var(--call);
+}
+
+.rep {
+  grid-column: 3 / span 1;
+  background: white;
+  cursor: pointer;
+
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.time {
+  grid-column: 4 / span 1;
+  background: white;
+  cursor: pointer;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.down {
+  --w: 10px;
+  width: var(--w);
+  height: var(--w);
+  background-color: #222;
+  clip-path: polygon(0% 33.33%, 100% 33.33%, 50% 100%, 0% 33.33%);
+}
+
+.company {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.company-name {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.company-last {
+  font-weight: bold;
+  font-size: 11px;
+  color: #606060;
+}
+
+.graph-total-time {
+  font-size: 12px;
+  font-weight: bold;
+  color: #606060;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.graph-container {
+  grid-column: 2 / -1;
+  grid-row: 2 / -1;
+  gap: 1px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  background: white;
+}
+
+.graph {
+  height: 100%;
+  min-width: max-content;
+  background: #e7ecf2;
+
+  display: grid;
+  gap: 1px;
+  grid-template-rows: repeat(2, 1fr) minmax(64px, min-content);
+}
+
+.timeline, .timeline-bubble {
+  width: 100%;
+  height: 100%;
+  background: #e7ecf2;
+
+  display: grid;
+  gap: 1px;
+  grid-template-columns: 80px;
+  grid-auto-flow: column;
+  grid-auto-columns: 80px;
+}
+
+.bubble-day, .graph-time{
+  width: 100%;
+  height: 100%;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: top .8s cubic-bezier(.28,-1.29,.74,2.12);
+}
+
+.bubble.emails {
+  background-color: var(--email);
+}
+
+.bubble.messages {
+  background-color: var(--message);
+}
+
+.bubble.calls {
+  background-color: var(--call);
+}
+
+.bubble.emails {
+  --w: 30%;
+  top: 30%;
+  width: var(--w);
+  height: var(--w);
+  z-index: 3;
+}
+
+.bubble.messages {
+  --w: 50%;
+  top: 40%;
+  width: var(--w);
+  height: var(--w);
+  z-index: 2;
+}
+
+.bubble.calls {
+  --w: 70%;
+  top: 50%;
+  width: var(--w);
+  height: var(--w);
+  z-index: 1;
+}
+
+.bubble-day:hover .bubble {
+}
+
+.bubble-day:hover .bubble.emails {
+  top: 25%;
+}
+
+.bubble-day:hover .bubble.messages {
+  top: 50%;
+}
+
+.bubble-day:hover .bubble.calls {
+  top: 75%;
+}
+
+.graph-time {
+  display: flex;
+  gap: 2px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
